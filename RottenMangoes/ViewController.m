@@ -36,7 +36,9 @@
                 Movie *movie = [[Movie alloc] initWithTitle:item[@"title"] andYear:item[@"year"] andMpaaRating:item[@"mpaa_rating"] andReleaseDate:item[@"release_date"][@"theater"] andSynopsis:item[@"synopsis"]  andImageURL:item[@"posters"][@"thumbnail"]];
                 [self.movies addObject:movie];
             }
-            [self.collectionView reloadData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.collectionView reloadData];
+            });
         }
     }];
     [task resume];
@@ -55,7 +57,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     Movie *movie = self.movies[indexPath.row];
-    cell.thumbnailImageView.image = movie.thumbnail;
+    [cell fetchImage:movie.thumbnailURL];
     cell.titleLabel.text = movie.title;
     return cell;
 }

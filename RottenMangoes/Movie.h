@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSString *mpaaRating;
 @property (nonatomic, strong) NSString *releaseDateInTheatre;
 @property (nonatomic, strong) NSString *synopsis;
-@property (nonatomic, strong) UIImage *thumbnail;
+@property (nonatomic, strong) NSString *thumbnailURL;
 
 -(instancetype)initWithTitle:(NSString *)title andYear:(NSString *)year andMpaaRating:(NSString *)rating andReleaseDate:(NSString *)date andSynopsis:(NSString *)synopsis andImageURL:(NSString *)imageURL;
 

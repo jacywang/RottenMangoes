@@ -18,17 +18,9 @@
         _mpaaRating = rating;
         _releaseDateInTheatre = date;
         _synopsis = synopsis;
-        [self fetchImage:imageURL];
+        _thumbnailURL = imageURL;
     }
     return self;
-}
-
-- (void)fetchImage:(NSString *)urlString{
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSURLSessionDownloadTask *downloadPhotoTask = [[NSURLSession sharedSession] downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-        self.thumbnail = [UIImage imageWithData: [NSData dataWithContentsOfURL:location]];
-    }];
-    [downloadPhotoTask resume];
 }
 
 @end

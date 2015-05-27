@@ -12,5 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) NSURLSessionDownloadTask *downloadPhotoTask;
+
+- (void)fetchImage:(NSString *)urlString;
 
 @end
