@@ -18,6 +18,6 @@
 @property (nonatomic, strong) NSString *synopsis;
 @property (nonatomic, strong) UIImage *thumbnail;
 
--(instancetype)initWithTitle:(NSString *)title andYear:(NSString *)year andMpaaRating:(NSString *)rating andReleaseDate:(NSString *)date andSynopsis:(NSString *)synopsis andThumbnailImageName:(NSString *)imageName;
+-(instancetype)initWithTitle:(NSString *)title andYear:(NSString *)year andMpaaRating:(NSString *)rating andReleaseDate:(NSString *)date andSynopsis:(NSString *)synopsis andImageURL:(NSString *)imageURL;
 
 @end

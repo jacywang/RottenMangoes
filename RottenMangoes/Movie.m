@@ -10,7 +10,7 @@
 
 @implementation Movie
 
--(instancetype)initWithTitle:(NSString *)title andYear:(NSString *)year andMpaaRating:(NSString *)rating andReleaseDate:(NSString *)date andSynopsis:(NSString *)synopsis andThumbnailImageName:(NSString *)imageName {
+-(instancetype)initWithTitle:(NSString *)title andYear:(NSString *)year andMpaaRating:(NSString *)rating andReleaseDate:(NSString *)date andSynopsis:(NSString *)synopsis andImageURL:(NSString *)imageURL{
     self = [super init];
     if (self) {
         _title = title;
@@ -18,9 +18,17 @@
         _mpaaRating = rating;
         _releaseDateInTheatre = date;
         _synopsis = synopsis;
-        _thumbnail = [UIImage imageNamed:imageName];
+        [self fetchImage:imageURL];
     }
     return self;
+}
+
+- (void)fetchImage:(NSString *)urlString{
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLSessionDownloadTask *downloadPhotoTask = [[NSURLSession sharedSession] downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+        self.thumbnail = [UIImage imageWithData: [NSData dataWithContentsOfURL:location]];
+    }];
+    [downloadPhotoTask resume];
 }
 
 @end

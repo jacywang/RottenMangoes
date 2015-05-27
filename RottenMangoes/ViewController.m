@@ -33,7 +33,7 @@
             self.dataDownloaded = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             self.movies = [[NSMutableArray alloc] init];
             for (NSDictionary *item in self.dataDownloaded[@"movies"]) {
-                Movie *movie = [[Movie alloc] initWithTitle:item[@"title"] andYear:item[@"year"] andMpaaRating:item[@"mpaa_rating"] andReleaseDate:item[@"release_date"][@"theater"] andSynopsis:item[@"synopsis"] andThumbnailImageName:item[@"posters"][@"thumbnail"]];
+                Movie *movie = [[Movie alloc] initWithTitle:item[@"title"] andYear:item[@"year"] andMpaaRating:item[@"mpaa_rating"] andReleaseDate:item[@"release_date"][@"theater"] andSynopsis:item[@"synopsis"]  andImageURL:item[@"posters"][@"thumbnail"]];
                 [self.movies addObject:movie];
             }
             [self.collectionView reloadData];
@@ -41,6 +41,8 @@
     }];
     [task resume];
 }
+
+
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
