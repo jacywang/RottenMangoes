@@ -12,12 +12,14 @@
 @interface Movie : NSObject
 
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *year;
+@property (nonatomic, assign) int year;
 @property (nonatomic, strong) NSString *mpaaRating;
+@property (nonatomic, assign) int runtime;
 @property (nonatomic, strong) NSString *releaseDateInTheatre;
 @property (nonatomic, strong) NSString *synopsis;
 @property (nonatomic, strong) NSString *thumbnailURL;
+@property (nonatomic, strong) UIImage *thumbnailImage;
 
--(instancetype)initWithTitle:(NSString *)title andYear:(NSString *)year andMpaaRating:(NSString *)rating andReleaseDate:(NSString *)date andSynopsis:(NSString *)synopsis andImageURL:(NSString *)imageURL;
+-(instancetype)initWithTitle:(NSString *)title andYear:(int)year andMpaaRating:(NSString *)rating andRunTime:(int)runtime andReleaseDate:(NSString *)date andSynopsis:(NSString *)synopsis andImageURL:(NSString *)imageURL;
 
 @end

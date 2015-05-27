@@ -7,6 +7,7 @@
 //
 
 #import "CollectionViewCell.h"
+#import "Movie.h"
 
 @implementation CollectionViewCell
 
@@ -14,7 +15,7 @@
     [self.downloadPhotoTask cancel];
 }
 
-- (void)fetchImage:(NSString *)urlString{
+- (void)fetchImage:(NSString *)urlString andMovie:(Movie *)movie{
     NSURL *url = [NSURL URLWithString:urlString];
     self.downloadPhotoTask = [[NSURLSession sharedSession] downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
         
@@ -22,6 +23,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             self.thumbnailImageView.image = image;
+            movie.thumbnailImage = image;
         });
         
     }];

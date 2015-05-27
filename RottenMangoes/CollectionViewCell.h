@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Movie;
 
 @interface CollectionViewCell : UICollectionViewCell
 
@@ -14,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) NSURLSessionDownloadTask *downloadPhotoTask;
 
-- (void)fetchImage:(NSString *)urlString;
+- (void)fetchImage:(NSString *)urlString andMovie:(Movie *)movie;
 
 @end

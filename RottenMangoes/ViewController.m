@@ -35,7 +35,7 @@
             self.dataDownloaded = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             self.movies = [[NSMutableArray alloc] init];
             for (NSDictionary *item in self.dataDownloaded[@"movies"]) {
-                Movie *movie = [[Movie alloc] initWithTitle:item[@"title"] andYear:item[@"year"] andMpaaRating:item[@"mpaa_rating"] andReleaseDate:item[@"release_date"][@"theater"] andSynopsis:item[@"synopsis"]  andImageURL:item[@"posters"][@"thumbnail"]];
+                Movie *movie = [[Movie alloc] initWithTitle:item[@"title"] andYear:[item[@"year"] intValue] andMpaaRating:item[@"mpaa_rating"] andRunTime:[item[@"runtime"] intValue] andReleaseDate:item[@"release_dates"][@"theater"] andSynopsis:item[@"synopsis"]  andImageURL:item[@"posters"][@"thumbnail"]];
                 [self.movies addObject:movie];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -67,7 +67,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     Movie *movie = self.movies[indexPath.row];
-    [cell fetchImage:movie.thumbnailURL];
+    [cell fetchImage:movie.thumbnailURL andMovie:movie];
     cell.titleLabel.text = movie.title;
     return cell;
 }
