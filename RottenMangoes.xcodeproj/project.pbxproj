@@ -15,6 +15,8 @@
 		9C0159961B1644B8005C9E88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C0159951B1644B8005C9E88 /* Images.xcassets */; };
 		9C0159991B1644B8005C9E88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C0159971B1644B8005C9E88 /* LaunchScreen.xib */; };
 		9C0159A51B1644B8005C9E88 /* RottenMangoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0159A41B1644B8005C9E88 /* RottenMangoesTests.m */; };
+		9C0159B01B1645BA005C9E88 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0159AF1B1645BA005C9E88 /* Movie.m */; };
+		9C0159B31B165F7C005C9E88 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0159B21B165F7C005C9E88 /* CollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,10 @@
 		9C01599E1B1644B8005C9E88 /* RottenMangoesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RottenMangoesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0159A31B1644B8005C9E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C0159A41B1644B8005C9E88 /* RottenMangoesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RottenMangoesTests.m; sourceTree = "<group>"; };
+		9C0159AE1B1645BA005C9E88 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		9C0159AF1B1645BA005C9E88 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		9C0159B11B165F7C005C9E88 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		9C0159B21B165F7C005C9E88 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +93,11 @@
 				9C01598A1B1644B7005C9E88 /* AppDelegate.m */,
 				9C01598F1B1644B7005C9E88 /* ViewController.h */,
 				9C0159901B1644B7005C9E88 /* ViewController.m */,
+				9C0159B11B165F7C005C9E88 /* CollectionViewCell.h */,
+				9C0159B21B165F7C005C9E88 /* CollectionViewCell.m */,
 				9C0159921B1644B7005C9E88 /* Main.storyboard */,
+				9C0159AE1B1645BA005C9E88 /* Movie.h */,
+				9C0159AF1B1645BA005C9E88 /* Movie.m */,
 				9C0159951B1644B8005C9E88 /* Images.xcassets */,
 				9C0159971B1644B8005C9E88 /* LaunchScreen.xib */,
 				9C01598C1B1644B7005C9E88 /* RottenMangoes.xcdatamodeld */,
@@ -222,8 +232,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C0159B31B165F7C005C9E88 /* CollectionViewCell.m in Sources */,
 				9C01598B1B1644B7005C9E88 /* AppDelegate.m in Sources */,
 				9C0159881B1644B7005C9E88 /* main.m in Sources */,
+				9C0159B01B1645BA005C9E88 /* Movie.m in Sources */,
 				9C0159911B1644B7005C9E88 /* ViewController.m in Sources */,
 				9C01598E1B1644B7005C9E88 /* RottenMangoes.xcdatamodeld in Sources */,
 			);
