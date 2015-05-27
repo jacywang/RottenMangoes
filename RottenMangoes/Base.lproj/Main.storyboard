@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nxh-Lc-iO2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movies In Theater-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -58,6 +58,7 @@
                                         <connections>
                                             <outlet property="thumbnailImageView" destination="oxn-s7-d3S" id="wng-pO-Se3"/>
                                             <outlet property="titleLabel" destination="ciH-je-cd3" id="3mY-gY-NOI"/>
+                                            <segue destination="Oea-Ow-a9a" kind="show" identifier="showMovie" id="mxA-od-txO"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -75,11 +76,48 @@
                             <constraint firstItem="gqt-yG-Ig9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="hTn-gI-W2G"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Movies In Theater" id="0j7-U3-2ND"/>
                     <connections>
                         <outlet property="collectionView" destination="gqt-yG-Ig9" id="gjT-sM-ffO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="953" y="90"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="nAg-7B-c4v">
+            <objects>
+                <viewController id="Oea-Ow-a9a" customClass="MovieDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CFz-s9-zZw"/>
+                        <viewControllerLayoutGuide type="bottom" id="OSV-hA-2TP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jC9-vz-dkI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7yC-Gj-SQD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1719" y="90"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NJl-Z9-BgI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nxh-Lc-iO2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="edS-zb-xxa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="vIm-AO-1d7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yoN-WF-Ka6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="141" y="90"/>
         </scene>

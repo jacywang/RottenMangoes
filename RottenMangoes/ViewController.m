@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Movie.h"
 #import "CollectionViewCell.h"
+#import "MovieDetailsViewController.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self fetchData];
+    self.collectionView.allowsMultipleSelection = NO;
 }
 
 - (void)fetchData {
@@ -44,7 +46,15 @@
     [task resume];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showMovie"]) {
+        MovieDetailsViewController *movieDetailViewController = segue.destinationViewController;
+        NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
+        movieDetailViewController.movie = self.movies[indexPath.row];
+    }
+}
 
+#pragma mark - CollectionView datasource and delegate
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;

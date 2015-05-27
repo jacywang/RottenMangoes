@@ -17,6 +17,7 @@
 		9C0159A51B1644B8005C9E88 /* RottenMangoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0159A41B1644B8005C9E88 /* RottenMangoesTests.m */; };
 		9C0159B01B1645BA005C9E88 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0159AF1B1645BA005C9E88 /* Movie.m */; };
 		9C0159B31B165F7C005C9E88 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0159B21B165F7C005C9E88 /* CollectionViewCell.m */; };
+		9C0159B61B167227005C9E88 /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0159B51B167227005C9E88 /* MovieDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		9C0159AF1B1645BA005C9E88 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		9C0159B11B165F7C005C9E88 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		9C0159B21B165F7C005C9E88 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		9C0159B41B167227005C9E88 /* MovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailsViewController.h; sourceTree = "<group>"; };
+		9C0159B51B167227005C9E88 /* MovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				9C0159901B1644B7005C9E88 /* ViewController.m */,
 				9C0159B11B165F7C005C9E88 /* CollectionViewCell.h */,
 				9C0159B21B165F7C005C9E88 /* CollectionViewCell.m */,
+				9C0159B41B167227005C9E88 /* MovieDetailsViewController.h */,
+				9C0159B51B167227005C9E88 /* MovieDetailsViewController.m */,
 				9C0159921B1644B7005C9E88 /* Main.storyboard */,
 				9C0159AE1B1645BA005C9E88 /* Movie.h */,
 				9C0159AF1B1645BA005C9E88 /* Movie.m */,
@@ -235,6 +240,7 @@
 				9C0159B31B165F7C005C9E88 /* CollectionViewCell.m in Sources */,
 				9C01598B1B1644B7005C9E88 /* AppDelegate.m in Sources */,
 				9C0159881B1644B7005C9E88 /* main.m in Sources */,
+				9C0159B61B167227005C9E88 /* MovieDetailsViewController.m in Sources */,
 				9C0159B01B1645BA005C9E88 /* Movie.m in Sources */,
 				9C0159911B1644B7005C9E88 /* ViewController.m in Sources */,
 				9C01598E1B1644B7005C9E88 /* RottenMangoes.xcdatamodeld in Sources */,
