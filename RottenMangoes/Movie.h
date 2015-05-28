@@ -21,8 +21,9 @@
 @property (nonatomic, strong) UIImage *thumbnailImage;
 @property (nonatomic, strong) NSString *reviewsURL;
 @property (nonatomic, strong) NSArray *reviewsArray;
+@property (nonatomic, strong) NSString *alternateURL;
 
 
--(instancetype)initWithTitle:(NSString *)title andYear:(int)year andMpaaRating:(NSString *)rating andRunTime:(int)runtime andReleaseDate:(NSString *)date andSynopsis:(NSString *)synopsis andImageURL:(NSString *)imageURL andReviewsURL:(NSString *)reviewsURL;
+-(instancetype)initWithTitle:(NSString *)title andYear:(int)year andMpaaRating:(NSString *)rating andRunTime:(int)runtime andReleaseDate:(NSString *)date andSynopsis:(NSString *)synopsis andImageURL:(NSString *)imageURL andReviewsURL:(NSString *)reviewsURL andAlternateURL:(NSString *)alternateURL;
 
 @end

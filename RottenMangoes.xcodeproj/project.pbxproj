@@ -18,6 +18,7 @@
 		9C0159B01B1645BA005C9E88 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0159AF1B1645BA005C9E88 /* Movie.m */; };
 		9C0159B31B165F7C005C9E88 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0159B21B165F7C005C9E88 /* CollectionViewCell.m */; };
 		9C0159B61B167227005C9E88 /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0159B51B167227005C9E88 /* MovieDetailsViewController.m */; };
+		9C0159B91B169F89005C9E88 /* MovieWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0159B81B169F89005C9E88 /* MovieWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		9C0159B21B165F7C005C9E88 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		9C0159B41B167227005C9E88 /* MovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailsViewController.h; sourceTree = "<group>"; };
 		9C0159B51B167227005C9E88 /* MovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
+		9C0159B71B169F89005C9E88 /* MovieWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieWebViewController.h; sourceTree = "<group>"; };
+		9C0159B81B169F89005C9E88 /* MovieWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,8 @@
 				9C0159B21B165F7C005C9E88 /* CollectionViewCell.m */,
 				9C0159B41B167227005C9E88 /* MovieDetailsViewController.h */,
 				9C0159B51B167227005C9E88 /* MovieDetailsViewController.m */,
+				9C0159B71B169F89005C9E88 /* MovieWebViewController.h */,
+				9C0159B81B169F89005C9E88 /* MovieWebViewController.m */,
 				9C0159921B1644B7005C9E88 /* Main.storyboard */,
 				9C0159AE1B1645BA005C9E88 /* Movie.h */,
 				9C0159AF1B1645BA005C9E88 /* Movie.m */,
@@ -237,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C0159B91B169F89005C9E88 /* MovieWebViewController.m in Sources */,
 				9C0159B31B165F7C005C9E88 /* CollectionViewCell.m in Sources */,
 				9C01598B1B1644B7005C9E88 /* AppDelegate.m in Sources */,
 				9C0159881B1644B7005C9E88 /* main.m in Sources */,

@@ -35,7 +35,7 @@
             self.dataDownloaded = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             self.movies = [[NSMutableArray alloc] init];
             for (NSDictionary *item in self.dataDownloaded[@"movies"]) {
-                Movie *movie = [[Movie alloc] initWithTitle:item[@"title"] andYear:[item[@"year"] intValue] andMpaaRating:item[@"mpaa_rating"] andRunTime:[item[@"runtime"] intValue] andReleaseDate:item[@"release_dates"][@"theater"] andSynopsis:item[@"synopsis"]  andImageURL:item[@"posters"][@"thumbnail"] andReviewsURL:item[@"links"][@"reviews"]];
+                Movie *movie = [[Movie alloc] initWithTitle:item[@"title"] andYear:[item[@"year"] intValue] andMpaaRating:item[@"mpaa_rating"] andRunTime:[item[@"runtime"] intValue] andReleaseDate:item[@"release_dates"][@"theater"] andSynopsis:item[@"synopsis"]  andImageURL:item[@"posters"][@"thumbnail"] andReviewsURL:item[@"links"][@"reviews"] andAlternateURL:item[@"links"][@"alternate"]];
                 [self.movies addObject:movie];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
