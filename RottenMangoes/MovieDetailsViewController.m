@@ -44,9 +44,15 @@
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.movie.reviewsArray = dict[@"reviews"];
-                self.firstReviewLabel.text = [[@"\"" stringByAppendingString:self.movie.reviewsArray[0][@"quote"]] stringByAppendingString:@"\""];
-                self.secondReviewLabel.text = [[@"\"" stringByAppendingString:self.movie.reviewsArray[1][@"quote"]] stringByAppendingString:@"\""];
-                self.thirdReviewLabel.text = [[@"\"" stringByAppendingString:self.movie.reviewsArray[2][@"quote"]] stringByAppendingString:@"\""];
+                if (self.movie.reviewsArray.count > 0) {
+                    self.firstReviewLabel.text = [[@"\"" stringByAppendingString:self.movie.reviewsArray[0][@"quote"]] stringByAppendingString:@"\""];
+                }
+                if (self.movie.reviewsArray.count > 1) {
+                    self.secondReviewLabel.text = [[@"\"" stringByAppendingString:self.movie.reviewsArray[1][@"quote"]] stringByAppendingString:@"\""];
+                }
+                if (self.movie.reviewsArray.count > 2) {
+                    self.thirdReviewLabel.text = [[@"\"" stringByAppendingString:self.movie.reviewsArray[2][@"quote"]] stringByAppendingString:@"\""];
+                }
             });
         }
     }];
@@ -57,7 +63,6 @@
     if ([segue.identifier isEqualToString:@"showWeb"]) {
         MovieWebViewController *movieWebViewController = segue.destinationViewController;
         movieWebViewController.urlString = self.movie.alternateURL;
-        movieWebViewController.title = self.movie.title;
     }
 }
 
