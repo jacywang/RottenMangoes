@@ -10,7 +10,7 @@
 
 @implementation Movie
 
--(instancetype)initWithTitle:(NSString *)title andYear:(int)year andMpaaRating:(NSString *)rating andRunTime:(int)runtime andReleaseDate:(NSString *)date andSynopsis:(NSString *)synopsis andImageURL:(NSString *)imageURL {
+-(instancetype)initWithTitle:(NSString *)title andYear:(int)year andMpaaRating:(NSString *)rating andRunTime:(int)runtime andReleaseDate:(NSString *)date andSynopsis:(NSString *)synopsis andImageURL:(NSString *)imageURL andReviewsURL:(NSString *)reviewsURL{
     self = [super init];
     if (self) {
         _title = title;
@@ -20,6 +20,8 @@
         _releaseDateInTheatre = date;
         _synopsis = synopsis;
         _thumbnailURL = imageURL;
+        _reviewsURL = [reviewsURL stringByAppendingString:@"?apikey=sr9tdu3checdyayjz85mff8j&page_limit=3"];
+        _reviewsArray = [NSArray array];
     }
     return self;
 }
