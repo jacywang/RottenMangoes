@@ -8,6 +8,7 @@
 
 #import "MovieDetailsViewController.h"
 #import "MovieWebViewController.h"
+#import "MapViewController.h"
 
 @interface MovieDetailsViewController ()
 
@@ -64,6 +65,9 @@
     if ([segue.identifier isEqualToString:@"showWeb"]) {
         MovieWebViewController *movieWebViewController = segue.destinationViewController;
         movieWebViewController.urlString = self.movie.alternateURL;
+    } else if ([segue.identifier isEqualToString:@"showTheaterMap"]) {
+        MapViewController *mapViewController = segue.destinationViewController;
+        mapViewController.movie = self.movie;
     }
 }
 

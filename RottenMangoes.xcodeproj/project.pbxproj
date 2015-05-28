@@ -22,6 +22,7 @@
 		9C015A2C1B17B132005C9E88 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C015A2B1B17B132005C9E88 /* MapViewController.m */; };
 		9C015A2E1B17B16D005C9E88 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C015A2D1B17B16D005C9E88 /* MapKit.framework */; };
 		9C015A301B17B172005C9E88 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C015A2F1B17B172005C9E88 /* CoreLocation.framework */; };
+		9C015A331B17B8A0005C9E88 /* Theater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C015A321B17B8A0005C9E88 /* Theater.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		9C015A2B1B17B132005C9E88 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		9C015A2D1B17B16D005C9E88 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9C015A2F1B17B172005C9E88 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9C015A311B17B8A0005C9E88 /* Theater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theater.h; sourceTree = "<group>"; };
+		9C015A321B17B8A0005C9E88 /* Theater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theater.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				9C0159921B1644B7005C9E88 /* Main.storyboard */,
 				9C0159AE1B1645BA005C9E88 /* Movie.h */,
 				9C0159AF1B1645BA005C9E88 /* Movie.m */,
+				9C015A311B17B8A0005C9E88 /* Theater.h */,
+				9C015A321B17B8A0005C9E88 /* Theater.m */,
 				9C0159951B1644B8005C9E88 /* Images.xcassets */,
 				9C0159971B1644B8005C9E88 /* LaunchScreen.xib */,
 				9C01598C1B1644B7005C9E88 /* RottenMangoes.xcdatamodeld */,
@@ -264,6 +269,7 @@
 				9C0159B01B1645BA005C9E88 /* Movie.m in Sources */,
 				9C0159911B1644B7005C9E88 /* ViewController.m in Sources */,
 				9C01598E1B1644B7005C9E88 /* RottenMangoes.xcdatamodeld in Sources */,
+				9C015A331B17B8A0005C9E88 /* Theater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
