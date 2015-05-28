@@ -10,4 +10,7 @@
 
 @interface MovieWebViewController : UIViewController
 
+@property (nonatomic, strong) NSString *urlString;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @end

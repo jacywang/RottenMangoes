@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) NSURLSessionDownloadTask *downloadPhotoTask;
 
-- (void)fetchImage:(NSString *)urlString andMovie:(Movie *)movie;
+- (void)fetchImage:(Movie *)movie;
 
 @end

@@ -15,8 +15,8 @@
     [self.downloadPhotoTask cancel];
 }
 
-- (void)fetchImage:(NSString *)urlString andMovie:(Movie *)movie{
-    NSURL *url = [NSURL URLWithString:urlString];
+- (void)fetchImage:(Movie *)movie{
+    NSURL *url = [NSURL URLWithString:movie.thumbnailURL];
     self.downloadPhotoTask = [[NSURLSession sharedSession] downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
         
         UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:location]];

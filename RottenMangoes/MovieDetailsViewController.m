@@ -7,6 +7,7 @@
 //
 
 #import "MovieDetailsViewController.h"
+#import "MovieWebViewController.h"
 
 @interface MovieDetailsViewController ()
 
@@ -50,6 +51,14 @@
         }
     }];
     [task resume];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showWeb"]) {
+        MovieWebViewController *movieWebViewController = segue.destinationViewController;
+        movieWebViewController.urlString = self.movie.alternateURL;
+        movieWebViewController.title = self.movie.title;
+    }
 }
 
 @end

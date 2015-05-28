@@ -67,7 +67,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     Movie *movie = self.movies[indexPath.row];
-    [cell fetchImage:movie.thumbnailURL andMovie:movie];
+    [cell fetchImage:movie];
     cell.titleLabel.text = movie.title;
     return cell;
 }
