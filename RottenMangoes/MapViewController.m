@@ -46,7 +46,10 @@
                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 for (NSDictionary *item in dict[@"theatres"]) {
                     Theater *theater = [[Theater alloc] initWithName:item[@"name"] andAddress:item[@"address"] andLatitude:[item[@"lat"] floatValue] andLongitude:[item[@"lng"] floatValue]];
-                    // display on the map
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self addAnnotationforTheater:theater];
+                    });
                 }
                 
             } else {
@@ -60,7 +63,41 @@
     [task resume];
 }
 
+-(void)addAnnotationforTheater:(Theater *)theater {
+    MKPointAnnotation *marker = [[MKPointAnnotation alloc] init];
+    CLLocationCoordinate2D theaterLocation;
+    theaterLocation.latitude = theater.latitude;
+    theaterLocation.longitude = theater.longitude;
+    marker.coordinate = theaterLocation;
+    marker.title = theater.name;
+    
+    [self.mapView addAnnotation:marker];
+}
+
+#pragma mark - MKMapViewDelegate
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    if (annotation == self.mapView.userLocation) {
+        return nil;
+    }
+    
+    static NSString *annotationIdentifier = @"theaterLocation";
+    
+    MKPinAnnotationView *pinView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:annotationIdentifier];
+    
+    if (!pinView) {
+        pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotationIdentifier];
+    }
+    
+    pinView.canShowCallout = YES;
+    pinView.pinColor = MKPinAnnotationColorRed;
+    pinView.calloutOffset = CGPointMake(-15, 0);
+    
+    return pinView;
+}
+
 #pragma mark - CLLocationManagerDelegate
+
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"%@", [error localizedDescription]);
 }
@@ -76,8 +113,8 @@
     if (!_isInitialLocationSet) {
         MKCoordinateRegion region;
         region.center = location.coordinate;
-        region.span.latitudeDelta = 0.02;
-        region.span.longitudeDelta = 0.02;
+        region.span.latitudeDelta = 0.1;
+        region.span.longitudeDelta = 0.1;
         
         [self.mapView setRegion:region animated:YES];
         _isInitialLocationSet = YES;
