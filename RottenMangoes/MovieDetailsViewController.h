@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *secondReviewLabel;
 @property (weak, nonatomic) IBOutlet UILabel *thirdReviewLabel;
 @property (weak, nonatomic) IBOutlet UIButton *moreButton;
+@property (weak, nonatomic) IBOutlet UIButton *theaterButton;
 
 @property (nonatomic, strong) Movie *movie;
 

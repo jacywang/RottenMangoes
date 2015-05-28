@@ -20,6 +20,7 @@
     // Do any additional setup after loading the view.
     self.title = self.movie.title;
     self.moreButton.layer.cornerRadius = 10.0f;
+    self.theaterButton.layer.cornerRadius = 10.0f;
     self.titleAndYearLabel.text = [[[self.movie.title stringByAppendingString:@" ("] stringByAppendingString:[NSString stringWithFormat:@"%d", self.movie.year]] stringByAppendingString:@")"];
     self.mmpaRatingLabel.text = self.movie.mpaaRating;
     self.mmpaRatingLabel.clipsToBounds = YES;
