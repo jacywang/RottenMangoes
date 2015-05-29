@@ -17,6 +17,7 @@
         _address = address;
         _latitude = latitude;
         _longitude = longitude;
+        _location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
     }
     return self;
 }

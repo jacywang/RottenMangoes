@@ -9,9 +9,11 @@
 #import "MapViewController.h"
 #import "Theater.h"
 #import "Movie.h"
+#import "TableViewCell.h"
 
 @interface MapViewController () {
     CLLocationManager *_locationManager;
+    CLLocation *_userLocation;
     BOOL _isInitialLocationSet;
     NSString *_postCode;
 }
@@ -33,6 +35,23 @@
     
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
+    self.mapView.mapType = MKMapTypeStandard;
+    
+    _userLocation = [[CLLocation alloc] init];
+}
+
+- (IBAction)segmentControlClicked:(UISegmentedControl *)sender {
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            self.mapView.mapType = MKMapTypeStandard;
+            break;
+        case 1:
+            self.mapView.mapType = MKMapTypeSatellite;
+            break;
+        case 2:
+            self.mapView.mapType = MKMapTypeHybrid;
+            break;
+    }
 }
 
 -(void)loadTheater {
@@ -46,11 +65,28 @@
                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 for (NSDictionary *item in dict[@"theatres"]) {
                     Theater *theater = [[Theater alloc] initWithName:item[@"name"] andAddress:item[@"address"] andLatitude:[item[@"lat"] floatValue] andLongitude:[item[@"lng"] floatValue]];
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self addAnnotationforTheater:theater];
-                    });
+                    theater.distanceFromCurrentLocation = [_userLocation distanceFromLocation:theater.location];
+                    [self.theaterList addObject:theater];
                 }
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    for (Theater *theater in self.theaterList) {
+                        [self addAnnotationforTheater:theater];
+                    }
+                    
+                    [self.theaterList sortUsingComparator:^NSComparisonResult(Theater *obj1, Theater *obj2) {
+                        if (obj1.distanceFromCurrentLocation > obj2.distanceFromCurrentLocation) {
+                            return NSOrderedDescending;
+                        }
+                        if (obj1.distanceFromCurrentLocation < obj2.distanceFromCurrentLocation) {
+                            return NSOrderedAscending;
+                        }
+                        return NSOrderedSame;
+                    }];
+                    
+                    [self.tableView reloadData];
+                });
+                
                 
             } else {
                 NSLog(@"%ld", (long)httpResponse.statusCode);
@@ -58,7 +94,6 @@
         } else {
             NSLog(@"%@", [error.userInfo valueForKey:@"error"]);
         }
-        
     }];
     [task resume];
 }
@@ -108,24 +143,61 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     [_locationManager stopUpdatingLocation];
-    CLLocation *location = [locations firstObject];
+    _userLocation = [locations firstObject];
     
     if (!_isInitialLocationSet) {
         MKCoordinateRegion region;
-        region.center = location.coordinate;
+        region.center = _userLocation.coordinate;
         region.span.latitudeDelta = 0.1;
         region.span.longitudeDelta = 0.1;
         
         [self.mapView setRegion:region animated:YES];
+        self.theaterList = [[NSMutableArray alloc] init];
+
         _isInitialLocationSet = YES;
-    }
     
-    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
-    [geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        CLPlacemark *placeMark = [placemarks firstObject];
-        _postCode = placeMark.postalCode;
-        [self loadTheater];
-    }];
+        CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+        [geoCoder reverseGeocodeLocation:_userLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+            CLPlacemark *placeMark = [placemarks firstObject];
+            _postCode = placeMark.postalCode;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self loadTheater];
+            });
+            
+        }];
+    
+    }
+}
+
+#pragma mark - TableViewDataSource and TableViewDelegate
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.theaterList.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"theaterCell" forIndexPath:indexPath];
+    Theater *theater = self.theaterList[indexPath.row];
+    cell.nameLabel.text = theater.name;
+    cell.addressLabel.text = theater.address;
+    cell.distanceLabel.text = [NSString stringWithFormat:@"%.0fm", theater.distanceFromCurrentLocation];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Theater *selectedTheater = self.theaterList[indexPath.row];
+    
+    MKCoordinateRegion region;
+    region.center = _userLocation.coordinate;
+    region.span.latitudeDelta = (selectedTheater.distanceFromCurrentLocation * 2 + 1000) / 110000;
+    region.span.longitudeDelta = (selectedTheater.distanceFromCurrentLocation * 2 + 1000) / 110000;
+    
+    [self.mapView setRegion:region animated:YES];
 }
 
 @end

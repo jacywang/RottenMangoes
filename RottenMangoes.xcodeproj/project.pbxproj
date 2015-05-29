@@ -23,6 +23,7 @@
 		9C015A2E1B17B16D005C9E88 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C015A2D1B17B16D005C9E88 /* MapKit.framework */; };
 		9C015A301B17B172005C9E88 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C015A2F1B17B172005C9E88 /* CoreLocation.framework */; };
 		9C015A331B17B8A0005C9E88 /* Theater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C015A321B17B8A0005C9E88 /* Theater.m */; };
+		9C015A361B17D5F1005C9E88 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C015A351B17D5F1005C9E88 /* TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		9C015A2F1B17B172005C9E88 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9C015A311B17B8A0005C9E88 /* Theater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theater.h; sourceTree = "<group>"; };
 		9C015A321B17B8A0005C9E88 /* Theater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theater.m; sourceTree = "<group>"; };
+		9C015A341B17D5F1005C9E88 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		9C015A351B17D5F1005C9E88 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				9C0159B81B169F89005C9E88 /* MovieWebViewController.m */,
 				9C015A2A1B17B132005C9E88 /* MapViewController.h */,
 				9C015A2B1B17B132005C9E88 /* MapViewController.m */,
+				9C015A341B17D5F1005C9E88 /* TableViewCell.h */,
+				9C015A351B17D5F1005C9E88 /* TableViewCell.m */,
 				9C0159921B1644B7005C9E88 /* Main.storyboard */,
 				9C0159AE1B1645BA005C9E88 /* Movie.h */,
 				9C0159AF1B1645BA005C9E88 /* Movie.m */,
@@ -269,6 +274,7 @@
 				9C0159B01B1645BA005C9E88 /* Movie.m in Sources */,
 				9C0159911B1644B7005C9E88 /* ViewController.m in Sources */,
 				9C01598E1B1644B7005C9E88 /* RottenMangoes.xcdatamodeld in Sources */,
+				9C015A361B17D5F1005C9E88 /* TableViewCell.m in Sources */,
 				9C015A331B17B8A0005C9E88 /* Theater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,7 +398,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RottenMangoes/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -403,7 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RottenMangoes/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
