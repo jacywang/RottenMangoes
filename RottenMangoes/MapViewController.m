@@ -124,11 +124,44 @@
         pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotationIdentifier];
     }
     
+    pinView.image = [self getPinViewByTitle:annotation];
     pinView.canShowCallout = YES;
     pinView.pinColor = MKPinAnnotationColorRed;
     pinView.calloutOffset = CGPointMake(-15, 0);
     
     return pinView;
+}
+
+-(UIImage *)getPinViewByTitle:(MKPointAnnotation *)annotation {
+    NSArray *pinImageArray = @[[UIImage imageNamed:@"pin0"],
+                               [UIImage imageNamed:@"pin1"],
+                               [UIImage imageNamed:@"pin2"],
+                               [UIImage imageNamed:@"pin3"],
+                               [UIImage imageNamed:@"pin4"],
+                               [UIImage imageNamed:@"pin5"],
+                               [UIImage imageNamed:@"pin6"],
+                               [UIImage imageNamed:@"pin7"],
+                               [UIImage imageNamed:@"pin8"],
+                               [UIImage imageNamed:@"pin9"],
+                               [UIImage imageNamed:@"pin10"],
+                               [UIImage imageNamed:@"pin11"]
+                               ];
+    if ([annotation.title containsString:@"AMC"]) {
+        return pinImageArray[0];
+    } else if ([annotation.title containsString:@"CineArts"]) {
+        return pinImageArray[1];
+    } else if ([annotation.title containsString:@"Century"]) {
+        return pinImageArray[2];
+    } else if ([annotation.title containsString:@"CineLux"]) {
+        return pinImageArray[3];
+    } else if ([annotation.title containsString:@"Camera"]) {
+        return pinImageArray[4];
+    } else if ([annotation.title containsString:@"Los Gatos"]) {
+        return pinImageArray[5];
+    } else if ([annotation.title containsString:@"BlueLight"]) {
+        return pinImageArray[6];
+    }
+    return nil;
 }
 
 #pragma mark - CLLocationManagerDelegate
