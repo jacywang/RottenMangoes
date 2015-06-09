@@ -8,6 +8,7 @@
 
 #import "MovieDetailsViewController.h"
 #import "MovieWebViewController.h"
+#import "MapViewController.h"
 
 @interface MovieDetailsViewController ()
 
@@ -18,8 +19,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"+Favorite"
+                                                                    style:UIBarButtonItemStylePlain target:self action:@selector(addFavorite)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
     self.title = self.movie.title;
     self.moreButton.layer.cornerRadius = 10.0f;
+    self.theaterButton.layer.cornerRadius = 10.0f;
     self.titleAndYearLabel.text = [[[self.movie.title stringByAppendingString:@" ("] stringByAppendingString:[NSString stringWithFormat:@"%d", self.movie.year]] stringByAppendingString:@")"];
     self.mmpaRatingLabel.text = self.movie.mpaaRating;
     self.mmpaRatingLabel.clipsToBounds = YES;
@@ -29,6 +36,30 @@
     self.synopsisLabel.text = self.movie.synopsis;
     self.thumbnailImageView.image = self.movie.thumbnailImage;
     [self fetchReviews];
+}
+
+-(void)addFavorite {
+    MyUser *currentUser = [MyUser currentUser];
+    
+    if (currentUser.favoriteMovies.count == 0) {
+        currentUser.favoriteMovies = [NSMutableArray array];
+    }
+    
+    if ([currentUser.favoriteMovies containsObject:self.movie.title]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Duplicate" message:@"It's already in your favorite list!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    } else {
+        [currentUser.favoriteMovies addObject:self.movie.title];
+        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Succeed" message:@"Added to favorite movie list!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alertView show];
+            } else {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Add it again!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alertView show];
+            }
+        }];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -63,6 +94,9 @@
     if ([segue.identifier isEqualToString:@"showWeb"]) {
         MovieWebViewController *movieWebViewController = segue.destinationViewController;
         movieWebViewController.urlString = self.movie.alternateURL;
+    } else if ([segue.identifier isEqualToString:@"showTheaterMap"]) {
+        MapViewController *mapViewController = segue.destinationViewController;
+        mapViewController.movie = self.movie;
     }
 }
 

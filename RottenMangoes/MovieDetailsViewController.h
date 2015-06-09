@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Movie.h"
+#import "MyUser.h"
 
 @interface MovieDetailsViewController : UIViewController
 
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *secondReviewLabel;
 @property (weak, nonatomic) IBOutlet UILabel *thirdReviewLabel;
 @property (weak, nonatomic) IBOutlet UIButton *moreButton;
+@property (weak, nonatomic) IBOutlet UIButton *theaterButton;
 
 @property (nonatomic, strong) Movie *movie;
 

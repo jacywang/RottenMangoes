@@ -10,6 +10,7 @@
 #import "Movie.h"
 #import "CollectionViewCell.h"
 #import "MovieDetailsViewController.h"
+#import "SignupViewController.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    PFUser *currentUser = [PFUser currentUser];
+    
+    if (currentUser) {
+        NSLog(@"%@", currentUser.username);
+    } else {
+        [self performSegueWithIdentifier:@"showLogin" sender:self];
+    }
+    
     [self fetchData];
     self.collectionView.allowsMultipleSelection = NO;
 }
@@ -51,7 +63,7 @@
         MovieDetailsViewController *movieDetailViewController = segue.destinationViewController;
         NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
         movieDetailViewController.movie = self.movies[indexPath.row];
-    }
+    } 
 }
 
 #pragma mark - CollectionView datasource and delegate
