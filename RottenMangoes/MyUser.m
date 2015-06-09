@@ -13,6 +13,7 @@
 
 @dynamic userType;
 @dynamic imageFile;
+@dynamic favoriteMovies;
 
 + (MyUser *)currentUser {
     return (MyUser *)[PFUser currentUser];

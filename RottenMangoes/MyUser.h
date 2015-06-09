@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSString *userType;
 @property (nonatomic, strong) PFFile *imageFile;
+@property (nonatomic, strong) NSMutableArray *favoriteMovies;
 
 + (MyUser *)currentUser;
 
