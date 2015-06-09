@@ -109,29 +109,6 @@
     [self.mapView addAnnotation:marker];
 }
 
-#pragma mark - MKMapViewDelegate
-
--(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    if (annotation == self.mapView.userLocation) {
-        return nil;
-    }
-    
-    static NSString *annotationIdentifier = @"theaterLocation";
-    
-    MKPinAnnotationView *pinView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:annotationIdentifier];
-    
-    if (!pinView) {
-        pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotationIdentifier];
-    }
-    
-    pinView.image = [self getPinViewByTitle:annotation];
-    pinView.canShowCallout = YES;
-    pinView.pinColor = MKPinAnnotationColorRed;
-    pinView.calloutOffset = CGPointMake(-15, 0);
-    
-    return pinView;
-}
-
 -(UIImage *)getPinViewByTitle:(MKPointAnnotation *)annotation {
     NSArray *pinImageArray = @[[UIImage imageNamed:@"pin0"],
                                [UIImage imageNamed:@"pin1"],
@@ -162,6 +139,33 @@
         return pinImageArray[6];
     }
     return nil;
+}
+
+#pragma mark - MKMapViewDelegate
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    if (annotation == self.mapView.userLocation) {
+        return nil;
+    }
+    
+    static NSString *annotationIdentifier = @"theaterLocation";
+    
+    MKPinAnnotationView *pinView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:annotationIdentifier];
+    
+    if (!pinView) {
+        pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotationIdentifier];
+    }
+    
+    pinView.image = [self getPinViewByTitle:annotation];
+    pinView.canShowCallout = YES;
+    pinView.pinColor = MKPinAnnotationColorRed;
+    pinView.calloutOffset = CGPointMake(-15, 0);
+    
+    return pinView;
+}
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    
 }
 
 #pragma mark - CLLocationManagerDelegate
