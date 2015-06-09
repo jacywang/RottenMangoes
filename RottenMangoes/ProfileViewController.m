@@ -25,4 +25,26 @@
     
 }
 
+#pragma mark - UITableViewDataSource and Delegate
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [MyUser currentUser].favoriteMovies.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"favoriteMovieCell" forIndexPath:indexPath];
+    cell.textLabel.text = [MyUser currentUser].favoriteMovies[indexPath.row];
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.myTableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 @end

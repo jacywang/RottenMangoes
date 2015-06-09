@@ -10,10 +10,10 @@
 #import "MyUser.h"
 #import <ParseUI/ParseUI.h>
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet PFImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userTypeLabel;
-
+@property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @end
