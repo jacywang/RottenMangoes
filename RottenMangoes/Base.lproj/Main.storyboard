@@ -438,6 +438,7 @@
                             <constraint firstItem="g2y-Gb-15I" firstAttribute="top" secondItem="xVR-Lr-9Lu" secondAttribute="bottom" constant="5" id="BZ1-DR-dII"/>
                             <constraint firstItem="kFe-e6-NH7" firstAttribute="leading" secondItem="jC9-vz-dkI" secondAttribute="leading" constant="16" id="Bcq-6K-UQZ"/>
                             <constraint firstItem="onK-W8-oAg" firstAttribute="leading" secondItem="Y2I-ij-XpX" secondAttribute="trailing" constant="8" id="FjJ-tQ-2CQ"/>
+                            <constraint firstItem="U3C-Ze-1Pi" firstAttribute="top" secondItem="kFe-e6-NH7" secondAttribute="bottom" constant="8" id="IFX-FN-mfs"/>
                             <constraint firstItem="kFe-e6-NH7" firstAttribute="top" secondItem="k3W-Qb-QPz" secondAttribute="bottom" constant="8" id="Jea-q4-LYY"/>
                             <constraint firstItem="Y2I-ij-XpX" firstAttribute="top" secondItem="g2y-Gb-15I" secondAttribute="bottom" constant="8.5" id="M85-pH-h0C"/>
                             <constraint firstItem="FNw-oS-Y6E" firstAttribute="top" secondItem="ySd-AW-21V" secondAttribute="bottom" constant="8" id="OpK-qR-j1D"/>
@@ -458,10 +459,17 @@
                             <constraint firstAttribute="trailing" secondItem="fe7-d1-rDT" secondAttribute="trailing" constant="16" id="m6I-RZ-N1j"/>
                             <constraint firstItem="k3W-Qb-QPz" firstAttribute="top" secondItem="FNw-oS-Y6E" secondAttribute="bottom" constant="8" id="pSZ-6C-jBM"/>
                             <constraint firstItem="onK-W8-oAg" firstAttribute="centerY" secondItem="Y2I-ij-XpX" secondAttribute="centerY" id="qES-2V-1Mu"/>
+                            <constraint firstItem="fe7-d1-rDT" firstAttribute="top" secondItem="U3C-Ze-1Pi" secondAttribute="bottom" constant="8" id="qUY-Ak-cE1"/>
                             <constraint firstItem="FNw-oS-Y6E" firstAttribute="leading" secondItem="jC9-vz-dkI" secondAttribute="leading" constant="16" id="vcm-gf-HTh"/>
                             <constraint firstItem="xVR-Lr-9Lu" firstAttribute="top" secondItem="CFz-s9-zZw" secondAttribute="bottom" constant="8" id="xea-vb-cL2"/>
                             <constraint firstItem="fe7-d1-rDT" firstAttribute="top" secondItem="U3C-Ze-1Pi" secondAttribute="bottom" constant="8" id="yyt-g9-2p3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZJO-Zb-9R8"/>
+                                <exclude reference="yyt-g9-2p3"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems>
                         <barButtonItem title="Item" id="xzO-WH-kiv"/>
@@ -547,8 +555,8 @@
                                     <action selector="segmentControlClicked:" destination="6Np-BR-mq1" eventType="valueChanged" id="Keb-bW-gHx"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bM9-fZ-ZDu">
-                                <rect key="frame" x="0.0" y="364" width="600" height="236"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bM9-fZ-ZDu">
+                                <rect key="frame" x="0.0" y="364" width="600" height="192"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="theaterCell" id="Nd0-4g-nKb" customClass="TableViewCell">
@@ -575,7 +583,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfW-FU-qum">
-                                                    <rect key="frame" x="492" y="15.5" width="100" height="18"/>
+                                                    <rect key="frame" x="492" y="15" width="100" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="k8V-ay-tNj"/>
                                                     </constraints>
