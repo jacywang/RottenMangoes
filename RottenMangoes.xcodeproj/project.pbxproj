@@ -43,6 +43,7 @@
 		9C3C0C3A1B26466A00ABABF5 /* Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C3C0C391B26466A00ABABF5 /* Camera.png */; };
 		9C3C0C3D1B26481C00ABABF5 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C0C3C1B26481C00ABABF5 /* SignupViewController.m */; };
 		9C3C0C401B2661A600ABABF5 /* MyUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C0C3F1B2661A600ABABF5 /* MyUser.m */; };
+		9C3C0C431B2695A400ABABF5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C0C421B2695A400ABABF5 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,8 @@
 		9C3C0C3C1B26481C00ABABF5 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		9C3C0C3E1B2661A600ABABF5 /* MyUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUser.h; sourceTree = "<group>"; };
 		9C3C0C3F1B2661A600ABABF5 /* MyUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUser.m; sourceTree = "<group>"; };
+		9C3C0C411B2695A400ABABF5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		9C3C0C421B2695A400ABABF5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +176,8 @@
 				9C3C0C3F1B2661A600ABABF5 /* MyUser.m */,
 				9C01598F1B1644B7005C9E88 /* ViewController.h */,
 				9C0159901B1644B7005C9E88 /* ViewController.m */,
+				9C3C0C411B2695A400ABABF5 /* ProfileViewController.h */,
+				9C3C0C421B2695A400ABABF5 /* ProfileViewController.m */,
 				9C3C0C3B1B26481C00ABABF5 /* SignupViewController.h */,
 				9C3C0C3C1B26481C00ABABF5 /* SignupViewController.m */,
 				9C0159B11B165F7C005C9E88 /* CollectionViewCell.h */,
@@ -356,6 +361,7 @@
 				9C0159B31B165F7C005C9E88 /* CollectionViewCell.m in Sources */,
 				9C01598B1B1644B7005C9E88 /* AppDelegate.m in Sources */,
 				9C015A2C1B17B132005C9E88 /* MapViewController.m in Sources */,
+				9C3C0C431B2695A400ABABF5 /* ProfileViewController.m in Sources */,
 				9C0159881B1644B7005C9E88 /* main.m in Sources */,
 				9C0159B61B167227005C9E88 /* MovieDetailsViewController.m in Sources */,
 				9C3C0C3D1B26481C00ABABF5 /* SignupViewController.m in Sources */,

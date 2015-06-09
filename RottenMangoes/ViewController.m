@@ -63,7 +63,7 @@
         MovieDetailsViewController *movieDetailViewController = segue.destinationViewController;
         NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
         movieDetailViewController.movie = self.movies[indexPath.row];
-    }
+    } 
 }
 
 #pragma mark - CollectionView datasource and delegate
