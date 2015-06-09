@@ -54,6 +54,20 @@
             if (succeeded) {
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Succeed" message:@"Added to favorite movie list!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alertView show];
+                
+                if ([[MyUser currentUser].userType isEqualToString:@"Movie Critic"]) {
+                    NSDictionary *pushData = [NSDictionary dictionaryWithObjectsAndKeys:
+                                              [NSString stringWithFormat:@"%@ was favorited by a movie critic!", self.movie.title], @"alert",
+                                              self.movie.title, @"movieTitle",
+                                              @"Increment" ,@"badge",
+                                              nil];
+                    
+                    PFPush *sendToCasualMovieFan = [[PFPush alloc] init];
+                    [sendToCasualMovieFan setChannel:@"casualMovieFan"];
+                    [sendToCasualMovieFan setData:pushData];
+                    [sendToCasualMovieFan sendPushInBackground];
+                }
+                
             } else {
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Add it again!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alertView show];
